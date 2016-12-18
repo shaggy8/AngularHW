@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html ng-app="Authorization" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Autorization</title>
+	<script src="../Libraries/angular.js"></script>
+	<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+	<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+	<script src="app2.js"></script>
+	<style>
+	h1 {
+		text-align: center;
+	}
+
+	.jumbotron {
+		margin: 50px auto;
+		width: 600px;
+	}
+
+	form .ng-valid.ng-dirty {
+		border-color: green;
+		box-shadow: inset 0 1px 1px rgba(0,255,0,.075), 0 0 8px rgba(102, 255, 233, .6)
+	}
+
+	form .ng-invalid.ng-dirty {
+		border-color: red;
+		box-shadow: inset 0 1px 1px rgba(255,0,0,.075), 0 0 8px rgba(255, 175, 233, .6)
+	}
+	</style>
+
+</head>
+<body ng-controller="AuthorizationCtrl">
+	<h1>{{greating}}</h1>
+	<form class="jumbotron" name="fineForm" ng-submit="submit()" novalidate>
+		<div class="form-group">
+			<label>Your Name</label>
+			<input type="text" name="name" class="form-control" required ng-minlength="3" ng-maxlength="20" ng-model="user.name" placeholder="Name">
+			<span ng-show="fineForm.name.$dirty && fineForm.name.$invalid" class="label label-danger">{{defineError(fineForm.name.$error)}}</span>
+		</div>
+		<div class="form-group">
+			<label>Your Surname</label>
+			<input type="text" name="surname" class="form-control" required ng-minlength="3" ng-maxlength="20" ng-model="user.surname" placeholder="Surname">
+			<span ng-show="fineForm.surname.$dirty && fineForm.surname.$invalid" class="label label-danger">{{defineError(fineForm.surname.$error)}}</span>
+		</div>
+		<div class="form-group">
+			<label>Email address</label>
+			<input type="email" name="email" class="form-control" required ng-pattern="pattern.email" ng-model="user.email" placeholder="Email">
+			<span ng-show="fineForm.email.$dirty && fineForm.email.$invalid"class="label label-danger">{{defineError(fineForm.email.$error)}}</span>
+		</div>
+		<div class="form-group">
+			<label>Phone number</label>
+			<input type="tel" name="phone" class="form-control" required minlength="13" ng-pattern="pattern.phone" ng-model="user.phone" placeholder="Phone">
+			<span ng-show="fineForm.phone.$dirty && fineForm.phone.$invalid" class="label label-danger">{{defineError(fineForm.phone.$error)}}</span>
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" name="pass" class="form-control" required ng-change="confirm()" ng-minlength="6" ng-maxlength="20" ng-model="user.pass" placeholder="Password">
+			<span ng-show="fineForm.pass.$dirty && fineForm.pass.$invalid" class="label label-danger">{{defineError(fineForm.pass.$error)}}</span>
+		</div>
+		<div class="form-group">
+			<label>Confirm password</label>
+			<input type="password" name="confirmPass" class="form-control" required ng-change="confirm()" ng-pattern="confirmPattern" ng-model="user.confirmPass" placeholder="Password">
+			<span ng-show="fineForm.confirmPass.$dirty && fineForm.confirmPass.$invalid" class="label label-danger">Пароль не співпадає</span>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="check" required ng-model="user.check"> Check me out
+			</label>
+		</div>
+		<button type="submit" class="btn btn-default btn-lg" ng-disabled="fineForm.$invalid">Submit</button>
+	</form>
+</body>
+</html>

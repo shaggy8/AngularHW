@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html ng-app="test" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test</title>
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script src="app2.js"></script>
+    <style>
+	    body {
+	    	padding: 50px;
+	    }
+    </style>
+
+</head>
+<body ng-controller="testCtrl">
+	<div class="alert alert-info questions">
+		<label ng-repeat="item in testItems" class="radio-inline">
+			<input ng-click="count($index)" type="radio" name="radio-question"> {{item.question}}
+		</label>
+	</div>
+	<div ng-switch on="num" class="alert alert-success">
+		<div ng-switch-when="0">
+			<div ng-repeat="answer in testItems[0].answers" class="checkbox">
+				<label>
+					<input type="checkbox" ng-click="check(answer)" value="{{answer}}">
+					{{answer}}
+				</label>
+			</div>
+		</div>
+		<div ng-switch-when="1">
+			<div ng-repeat="answer in testItems[1].answers" class="checkbox">
+				<label>
+					<input type="checkbox" ng-click="check(answer)" value="{{answer}}">
+					{{answer}}
+				</label>
+			</div>
+		</div>
+		<div ng-switch-when="2">
+			<div ng-repeat="answer in testItems[2].answers" class="checkbox">
+				<label>
+					<input type="checkbox" ng-click="check(answer)" value="{{answer}}">
+					{{answer}}
+				</label>
+			</div>
+		</div>
+		<div ng-switch-when="3">
+			<div ng-repeat="answer in testItems[3].answers" class="checkbox">
+				<label>
+					<input type="checkbox" ng-click="check(answer)" value="{{answer}}">
+					{{answer}}
+				</label>
+			</div>
+		</div>
+		<div ng-switch-when="4">
+			<div ng-repeat="answer in testItems[4].answers" class="checkbox">
+				<label>
+					<input type="checkbox" ng-click="check(answer)" value="{{answer}}">
+					{{answer}}
+				</label>
+			</div>
+		</div>
+	</div>
+	<button ng-click="add()" class="btn btn-warning">додати</button>
+	<button ng-click="show()" class="btn btn-warning">показати</button>
+	<h1>{{properties}}</h1>
+</body>
+</html>

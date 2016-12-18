@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="ColorBlockApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Funny block</title>
+	<script src="../Libraries/angular.js"></script>
+	<script src="app1.js"></script>
+
+	<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+	<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+	<style>
+	.block {
+		margin: 62px auto;
+		width: 260px;
+		height: 260px;
+		border: 1px solid black;
+		text-align: center;
+		line-height: 260px;
+		font-size: 26px;
+	}
+
+	.block-buttons {
+		display: block;
+		margin: auto;
+		width: 250px;
+	}
+
+	.green {
+		background-color: #449d44;
+	}
+
+	.blue {
+		background-color: #31b0d5;
+	}
+
+	.orange {
+		background-color: #ec971f;
+	}
+	</style>
+</head>
+<body ng-controller="ColorBlockAppCtrl">
+	<div class="block" ng-class="color">{{text}}</div>
+	<div class="btn-group block-buttons">
+		<button type="button" ng-click="paint('green')" class="btn btn-success btn-lg">Green</button>
+		<button type="button" ng-click="paint('blue')" class="btn btn-info btn-lg">Blue</button>
+		<button type="button" ng-click="paint('orange')" class="btn btn-warning btn-lg">Orange</button>
+	</div>
+</body>
+</html>

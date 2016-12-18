@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="taskOneApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task 1</title>
+    <script src="../Libraries/angular.js"></script>
+    <script src="model.js"></script>
+
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+    body {
+    	padding: 20px;
+    }
+    </style>
+</head>
+<body ng-controller="justCtrl">
+	<div class="panel panel-default">
+		<h1 class="panel-heading">ITVDN News</h1>
+		<div class="panel-body">
+			<div ng-repeat="article in data" class="well">
+				<h3>{{article.title}}</h3>
+				<p>{{article.published}}</p>
+				<p>{{article.description}}</p>
+				<a href="{{article.link}}" class="btn btn-primary">Read more</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

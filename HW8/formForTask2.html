@@ -1,0 +1,21 @@
+<div>
+	<form>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input ng-model="name" type="text" class="form-control" id="name">
+		</div>
+		<div class="form-group">
+			<label for="date">Due Date</label>
+			<input ng-model="date" type="text" class="form-control" id="date">
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea ng-model="description" class="form-control" id="description"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="complete">Completed</label>
+			<input ng-model="completed" type="checkbox" id="complete">
+		</div>
+		<button ng-click="add()" type="submit" class="btn btn-default">Add</button>
+	</form>
+</div>f

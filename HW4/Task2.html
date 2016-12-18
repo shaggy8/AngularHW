@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app="Calc" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<title>Calculator</title>
+		<script src="../Libraries/angular.js"></script>
+		<script src="app2.js"></script>
+
+		<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+		<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+		<style>
+		body {
+			padding: 50px;
+		}
+		.inline-div {
+			display: inline-block;
+		}
+		</style>
+</head>
+<body ng-controller="firstCtrl">
+	<form class="form-inline">
+		<input ng-model="number.a" class="form-control" type="text">
+		<input ng-model="number.b" class="form-control" type="text">
+        <div class="inline-div">
+			<button ng-click="calc()" class="btn btn-default">+</button>
+				<div ng-controller="secondCtrl" class="inline-div">
+					<button ng-click="calc()" class="btn btn-default">-</button>
+					<div ng-controller="thirdCtrl" class="inline-div">
+						<button ng-click="calc()" class="btn btn-default">*</button>
+						<div ng-controller="fourthCtrl" class="inline-div">
+							<button ng-click="calc()" class="btn btn-default">/</button>
+						</div>
+					</div>
+				</div>
+        </div>
+	</form>
+	<h1>{{result.num}}</h1>
+</body>
+</html>

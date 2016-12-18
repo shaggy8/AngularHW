@@ -1,0 +1,28 @@
+﻿<html ng-app="notepadApp">
+<head>
+	<title>Notepad))</title>
+	<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+	<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+	<style>
+	body {
+		padding: 25px;
+	}
+	textarea {
+		margin-bottom: 25px;
+	}
+	.well {
+		margin-top: 20px;
+	}
+	</style>
+	<script src="../Libraries/angular.js"></script>
+	<script src="app1.js"></script>
+</head>
+<body ng-controller="notepadCtrl">
+	<textarea ng-model="item" class="form-control" rows="3"></textarea>
+	<button ng-click="refresh()" class="btn btn-default">Refresh notes</button>
+	<button type="submit" ng-click="add()" class="btn btn-default">Add note</button>
+	<div ng-repeat="note in data" class="well">{{note.note}}
+		<button ng-click="delete(note)" class="btn btn-default">Delete note</button>
+	</div>
+</body>
+</html>

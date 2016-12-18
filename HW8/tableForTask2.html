@@ -1,0 +1,17 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Date</th>
+			<th>Completed</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="item in list">
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td>{{item.date}}</td>
+		<td>{{item.completed}}</td>
+	</tr>
+</table>
+<button ng-click="changeView()" class="btn btn-default btn-lg">Add item</button>

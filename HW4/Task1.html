@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html ng-app="copyPaste" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<title>CopyPaste</title>
+		<script src="../Libraries/angular.js"></script>
+		<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+		<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+		<script src="app1.js"></script>
+		<style>
+			body {
+				padding: 50px;
+			}
+		</style>
+
+</head>
+<body>
+	<div ng-controller="copyCtrl" class="col-lg-6">
+		<div class="input-group">
+			<input ng-model="inputText" type="text" class="form-control" placeholder="Some text...">
+			<span class="input-group-btn">
+				<button ng-click="copy()" class="btn btn-info" type="button">Copy</button>
+			</span>
+		</div>
+	</div>
+	<div ng-controller="pasteCtrl" class="col-lg-6">
+		<div class="input-group">
+			<input ng-model="inputText" type="text" class="form-control" placeholder="Some text...">
+			<span class="input-group-btn">
+				<button ng-click="paste()" class="btn btn-info" type="button">Paste</button>
+			</span>
+		</div>
+	</div>
+</body>
+</html>

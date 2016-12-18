@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="cashingApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<title>Cashing Application</title>
+		<script src="../Libraries/angular.js"></script>
+		<script src="app2.js"></script>
+
+		<link href="../Libraries/bootstrap.css" rel="stylesheet" />
+		<link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+		<style>
+		body {
+			padding: 25px;
+		}
+		#data {
+			margin-top: 25px;
+		}
+		</style>
+</head>
+<body ng-controller="cashingCtrl">
+	<form class="form-inline">
+		<div class="form-group">
+			<label>Text</label>
+			<input ng-model="data" type="text" class="form-control">
+			
+		</div>
+		<div class="form-group">
+			<label>Date and time</label>
+			<input ng-model="expirationDate" type="datetime-local" class="form-control">
+		</div>
+		<button ng-click="addData()" type="submit" class="btn btn-default">Add to cash</button>
+	</form>
+	<div class="well well-lg" id="data">
+		{{cash.data}}
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html ng-app="todo" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ToDo List (Task2)</title>
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script src="todo.js"></script>
+    <script>
+
+        angular
+            .module('todo', [])
+            .controller('todoCtrl', function($scope) {
+                
+                $scope.list = todoModel.read();
+                $scope.add = function() {
+                    todoModel.addItem($scope.name, $scope.date, $scope.description, $scope.completed);
+                    $scope.name = $scope.date = $scope.description = $scope.completed = '';
+                    todoModel.save();
+                };
+                $scope.show = function() {
+                    if ($scope.num == 'yes') {
+                        $scope.num = 'no';
+                    } else {
+                        $scope.num = 'yes';
+                    }
+                };
+            });
+
+    </script>
+
+</head>
+<body ng-controller="todoCtrl">
+
+    <div class="container">
+
+        <h3>ToDo List</h3>
+
+        <table ng-switch on="num" class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Completed</th>
+                    <th ng-switch-when="yes">Description</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="i in list">
+                <td>{{i.name}}</td>
+                <td>{{i.duedate}}</td>
+                <td>{{i.completed}}</td>
+                <td ng-switch-when="yes">{{i.description}}</td>
+            </tr>
+        </table>
+        <button ng-click="show()" class="btn btn-default">Show description</button>
+        <div>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input ng-model="name" type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Due Date</label>
+                    <input ng-model="date" type="text" class="form-control" id="due-date">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea ng-model="description" class="form-control" id="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input ng-model="completed" type="checkbox"> Completed
+                    </label>
+                </div>
+                <button ng-click="add()" type="submit" class="btn btn-default">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
